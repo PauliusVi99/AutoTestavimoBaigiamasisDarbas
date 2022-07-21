@@ -27,7 +27,12 @@ public class Common {
         action.moveToElement(element);
         action.click();
         action.perform();
-
+    }
+    public static void sendKeysToElement(By locator, String keys){
+        getElement(locator).sendKeys(keys);
+    }
+    public static String getElementText(By locator){
+        return getElement(locator).getText();
     }
 
 }
