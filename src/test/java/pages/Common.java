@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,5 +35,19 @@ public class Common {
     public static String getElementText(By locator){
         return getElement(locator).getText();
     }
+    public static boolean checkElementExistence(By locator){
+        boolean isElementExist;
+        try {
+            getElement(locator);
+            isElementExist = true;
+        } catch (NoSuchElementException e) {
+            isElementExist = false;
+        }
+        return isElementExist;
+    }
+//    public static String getCurrentUrl(){
+//        return Driver.getDriver().getCurrentUrl();
+//    }
+
 
 }

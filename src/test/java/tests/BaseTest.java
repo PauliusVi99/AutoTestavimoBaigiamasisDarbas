@@ -9,8 +9,8 @@ public class BaseTest {
 public void setUp(){
         Driver.setDriver();
     }
-@AfterMethod
-    public void teardown(){
-Driver.closeDriver();
-}
+//@AfterMethod
+//    public void teardown(){
+//Driver.closeDriver();
+//}
 }

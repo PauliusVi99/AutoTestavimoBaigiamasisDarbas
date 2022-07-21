@@ -1,4 +1,4 @@
-package tests.drogas;
+package tests.petCity;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -10,19 +10,18 @@ public class Home extends BaseTest {
     @Override
     public void setUp() {
         super.setUp();
-        pages.drogas.Home.open();
-        pages.drogas.Home.closeCookiesPopUp();
+        pages.petCity.Home.open();
+        pages.petCity.Home.closeCookiesPopUp();
     }
     @Test
     public void testSearchBoxWithInvalidData(){
         String testData = "tokioNera";
-        String expectedMessage =
-                String.format("Apgailestaujame, tačiau sistema nerado jokių paieškos rezultatų su \"%s\"",testData);
+        String expectedMessage ="Negalime rasti prekių atitinkančių jūsų pasirinkimą.";
         String actualMessage;
 
-        pages.drogas.Home.enterInvalidProduct(testData);
-        pages.drogas.Home.clickSearchButton();
-        actualMessage = pages.drogas.Home.readMessage();
+        pages.petCity.Home.enterInvalidProduct(testData);
+        pages.petCity.Home.clickSearchButton();
+        actualMessage = pages.petCity.Home.readMessage();
 
         Assert.assertEquals(actualMessage, expectedMessage);
 
