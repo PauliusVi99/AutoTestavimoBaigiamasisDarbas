@@ -14,14 +14,20 @@ public class E_Parduotuve extends BaseTest {
         pages.petCity.E_Parduotuve.closeCookiesPopUp();
     }
     @Test
-    public void testAddProductToCart(int quantity, int position){
-        int expectedQuantity = quantity;
-        int actualQuantity;
-        pages.petCity.E_Parduotuve.chooseQuantityOfProduct(quantity);
-        pages.petCity.E_Parduotuve.clickAddProductButtonByPosition(position);
+    public void testAddProductToCart(){
+        String expectedQuantity = "11";
+        String actualQuantity;
+        pages.petCity.E_Parduotuve.chooseQuantityOfProduct(1,"1");
+        pages.petCity.E_Parduotuve.clickAddProductButtonByPosition("1");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         actualQuantity = pages.petCity.E_Parduotuve.checkQuantityInCart();
 
-        Assert.assertTrue(actualQuantity == expectedQuantity);
+        //Assert.assertTrue(actualQuantity.equals(expectedQuantity));
+        Assert.assertEquals(actualQuantity,expectedQuantity);
 
     }
 }

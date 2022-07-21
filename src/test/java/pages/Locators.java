@@ -22,5 +22,18 @@ public class Locators {
             public static By buttonForLogin = By.xpath("/html/body/div[5]/div[5]/div[1]/div/section/div/div/div[1]/div[2]/div/form/ul[2]/li[1]");
             public static By fieldOfMessageForLogin = By.xpath("(//span[text() = 'Prisijungti'])[1]");
         }
+
+        public static class E_Parduotuve {
+
+            public static By spanQuantityOfProductsInCart = By.xpath("(//span[@class='products'])[1]");
+
+            public static By inputQuantityOfProductsByPosition(int position) {
+                return By.xpath(String.format("(//input[contains(@aria-label, 'Amount')])[%s]",position));
+            }
+
+            public static By buttonProductsAddByPosition(String position) {
+                return By.xpath(String.format("(//button[@class='button button-primary'])[%s]",position));
+            }
+        }
     }
 }

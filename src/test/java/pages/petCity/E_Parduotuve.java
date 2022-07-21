@@ -13,13 +13,21 @@ public class E_Parduotuve {
         Common.clickElementByAction(Locators.petCity.Home.buttonCloseCookiesPopUp);
     }
 
-    public static void chooseQuantityOfProduct(int quantity) {
+    public static void chooseQuantityOfProduct(int position, String quantity) {
+        Common.sendKeysToElement(Locators.petCity.E_Parduotuve.inputQuantityOfProductsByPosition(position), quantity);
+
     }
 
-    public static void clickAddProductButtonByPosition(int position) {
+    public static void clickAddProductButtonByPosition(String position) {
+        Common.clickElementByAction(Locators.petCity.E_Parduotuve.buttonProductsAddByPosition(position));
     }
 
-    public static int checkQuantityInCart() {
-        return 0;
+    public static String checkQuantityInCart() {
+
+        return Common.getElementText(Locators.petCity.E_Parduotuve.spanQuantityOfProductsInCart);
+    }
+
+    public static void waitForElementToBeActive() {
+        Common.waitForElementToBeVisible(Locators.petCity.E_Parduotuve.spanQuantityOfProductsInCart);
     }
 }
