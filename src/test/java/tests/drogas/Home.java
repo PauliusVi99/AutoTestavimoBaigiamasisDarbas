@@ -14,7 +14,7 @@ public class Home extends BaseTest {
         pages.drogas.Home.closeCookiesPopUp();
     }
     @Test
-    public void testHomeSearchBoxForProducts(){
+    public void testSearchBoxWithInvalidData(){
         String testData = "tokioNera";
         String expectedMessage =
                 String.format("Apgailestaujame, tačiau sistema nerado jokių paieškos rezultatų su \"%s\"",testData);
