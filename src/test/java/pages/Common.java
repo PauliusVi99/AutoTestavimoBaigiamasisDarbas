@@ -22,7 +22,8 @@ public class Common {
         WebDriverWait webDriverWait = new WebDriverWait(Driver.getDriver(), Constants.DURATION_TIMEOUT);
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public static void waitForElementToBeClickable(By locator){
+
+    public static void waitForElementToBeClickable(By locator) {
         WebDriverWait webDriverWait = new WebDriverWait(Driver.getDriver(), Constants.DURATION_TIMEOUT);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(locator));
     }
@@ -69,5 +70,9 @@ public class Common {
 
     public static String getCurrentUrl() {
         return Driver.getDriver().getCurrentUrl();
+    }
+
+    public static void makeFullScreen() {
+        Driver.getDriver().manage().window().fullscreen();
     }
 }

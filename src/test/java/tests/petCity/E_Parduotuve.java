@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tests.BaseTest;
-import utils.Driver;
 
 public class E_Parduotuve extends BaseTest {
     @BeforeMethod
@@ -14,6 +13,7 @@ public class E_Parduotuve extends BaseTest {
         super.setUp();
         pages.petCity.E_Parduotuve.open();
         pages.petCity.E_Parduotuve.closeCookiesPopUp();
+        pages.petCity.E_Parduotuve.makeFullScreen();
     }
 
     @DataProvider(name = "addProductToCart", parallel = true)
@@ -29,7 +29,6 @@ public class E_Parduotuve extends BaseTest {
     public void testAddProductToCart(String position, String quantity) {
         String expectedQuantity = quantity;
         String actualQuantity;
-        Driver.getDriver().manage().window().fullscreen();
 
         pages.petCity.E_Parduotuve.chooseQuantityOfProduct(position, quantity);
         pages.petCity.E_Parduotuve.clickAddProductButtonByPosition(position);
