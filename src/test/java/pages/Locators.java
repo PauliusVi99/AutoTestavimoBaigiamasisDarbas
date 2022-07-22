@@ -27,8 +27,8 @@ public class Locators {
 
             public static By spanQuantityOfProductsInCart = By.xpath("(//span[@class='products'])[1]");
 
-            public static By inputQuantityOfProductsByPosition(int position) {
-                return By.xpath(String.format("(//input[contains(@aria-label, 'Amount')])[%s]",position));
+            public static By buttonAddOneProductByPosition(String position) {
+                return By.xpath(String.format("(//button[text()='Daugiau'])[%s]",position));
             }
 
             public static By buttonProductsAddByPosition(String position) {

@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import tests.BaseTest;
+import utils.Driver;
 
 public class E_Parduotuve extends BaseTest {
     @BeforeMethod
@@ -15,9 +16,11 @@ public class E_Parduotuve extends BaseTest {
     }
     @Test
     public void testAddProductToCart(){
-        String expectedQuantity = "11";
+        String expectedQuantity = "5";
         String actualQuantity;
-        pages.petCity.E_Parduotuve.chooseQuantityOfProduct(1,"1");
+        Driver.getDriver().manage().window().fullscreen();
+
+        pages.petCity.E_Parduotuve.chooseQuantityOfProduct("1","5");
         pages.petCity.E_Parduotuve.clickAddProductButtonByPosition("1");
         try {
             Thread.sleep(5000);
@@ -26,7 +29,6 @@ public class E_Parduotuve extends BaseTest {
         }
         actualQuantity = pages.petCity.E_Parduotuve.checkQuantityInCart();
 
-        //Assert.assertTrue(actualQuantity.equals(expectedQuantity));
         Assert.assertEquals(actualQuantity,expectedQuantity);
 
     }

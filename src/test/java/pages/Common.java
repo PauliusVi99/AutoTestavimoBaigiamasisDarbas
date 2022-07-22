@@ -45,9 +45,17 @@ public class Common {
         }
         return isElementExist;
     }
-//    public static String getCurrentUrl(){
-//        return Driver.getDriver().getCurrentUrl();
-//    }
+    public static void clickElementByActionCertainNumberOfTimes(By locator, String times){
+        WebElement element = getElement(locator);
+        int timesToInteger = Integer.parseInt(times) - 1;
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element);
+        for (int i = 0; i < timesToInteger; i++) {
+            action.click();
+            action.perform();
+        }
+
+    }
 
 
 }
