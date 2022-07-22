@@ -22,6 +22,10 @@ public class Common {
         WebDriverWait webDriverWait = new WebDriverWait(Driver.getDriver(), Constants.DURATION_TIMEOUT);
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    public static void waitForElementToBeClickable(By locator){
+        WebDriverWait webDriverWait = new WebDriverWait(Driver.getDriver(), Constants.DURATION_TIMEOUT);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
     public static void clickElementByAction(By locator) {
         WebElement element = getElement(locator);
@@ -57,6 +61,7 @@ public class Common {
         Actions action = new Actions(Driver.getDriver());
         action.moveToElement(element);
         for (int i = 0; i < timesToInteger; i++) {
+            waitForElementToBeClickable(locator);
             action.click();
             action.perform();
         }
