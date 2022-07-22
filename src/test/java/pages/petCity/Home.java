@@ -2,10 +2,9 @@ package pages.petCity;
 
 import pages.Common;
 import pages.Locators;
-import utils.Constants;
-import utils.Driver;
 
 public class Home {
+
     public static void open() {
         pages.Common.openUrl("https://www.petcity.lt/");
     }
@@ -27,7 +26,7 @@ public class Home {
         return Common.getElementText(Locators.petCity.Home.fieldInvalidProductSearchMessage);
     }
 
-    public static boolean checkElementExistence(){
+    public static boolean checkElementExistence() {
         return Common.checkElementExistence(Locators.petCity.Home.divProductLayoutBox);
     }
 

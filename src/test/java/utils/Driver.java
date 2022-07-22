@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Driver {
     public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
     public static WebDriver getDriver() {
         return driver.get();
     }
@@ -21,5 +22,4 @@ public class Driver {
         driver.get().quit();
         driver.remove();
     }
-
 }

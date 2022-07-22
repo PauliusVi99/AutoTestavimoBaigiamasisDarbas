@@ -17,11 +17,13 @@ public class Common {
     public static WebElement getElement(By locator) {
         return Driver.getDriver().findElement(locator);
     }
-    public static void waitForElementToBeVisible(By locator){
+
+    public static void waitForElementToBeVisible(By locator) {
         WebDriverWait webDriverWait = new WebDriverWait(Driver.getDriver(), Constants.DURATION_TIMEOUT);
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public static void clickElementByAction(By locator){
+
+    public static void clickElementByAction(By locator) {
         WebElement element = getElement(locator);
 
         Actions action = new Actions(Driver.getDriver());
@@ -29,13 +31,16 @@ public class Common {
         action.click();
         action.perform();
     }
-    public static void sendKeysToElement(By locator, String keys){
+
+    public static void sendKeysToElement(By locator, String keys) {
         getElement(locator).sendKeys(keys);
     }
-    public static String getElementText(By locator){
+
+    public static String getElementText(By locator) {
         return getElement(locator).getText();
     }
-    public static boolean checkElementExistence(By locator){
+
+    public static boolean checkElementExistence(By locator) {
         boolean isElementExist;
         try {
             getElement(locator);
@@ -45,7 +50,8 @@ public class Common {
         }
         return isElementExist;
     }
-    public static void clickElementByActionCertainNumberOfTimes(By locator, String times){
+
+    public static void clickElementByActionCertainNumberOfTimes(By locator, String times) {
         WebElement element = getElement(locator);
         int timesToInteger = Integer.parseInt(times) - 1;
         Actions action = new Actions(Driver.getDriver());

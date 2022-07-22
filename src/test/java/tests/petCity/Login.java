@@ -13,6 +13,7 @@ public class Login extends BaseTest {
         pages.petCity.Login.open();
         pages.petCity.Login.closeCookiesPopUp();
     }
+
     @Test
     public void testLoginWithValidData() {
         String accountEmail = "witkus65@gmail.com";
@@ -26,9 +27,5 @@ public class Login extends BaseTest {
         isUserGuest = pages.petCity.Login.checkElementExistence();
 
         Assert.assertFalse(isUserGuest);
-
-
-
-
     }
-    }
+}

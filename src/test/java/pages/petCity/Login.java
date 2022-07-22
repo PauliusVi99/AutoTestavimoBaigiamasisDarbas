@@ -4,6 +4,7 @@ import pages.Common;
 import pages.Locators;
 
 public class Login {
+
     public static void open() {
         Common.openUrl("https://www.petcity.lt/customer/account/login/referer/aHR0cHM6Ly93d3cucGV0Y2l0eS5sdC9lLXBhcmR1b3R1dmU_Z2NsaWQ9RUFJYUlRb2JDaE1Jc2ZHbTNyT0stUUlWVHVxeUNoMEtPZ0daRUFBWUFTQUFFZ0tJX2ZEX0J3RQ/");
     }
@@ -26,10 +27,8 @@ public class Login {
         Common.waitForElementToBeVisible(Locators.petCity.Login.buttonForLogin);
         Common.clickElementByAction(Locators.petCity.Login.buttonForLogin);
     }
-    public static boolean checkElementExistence(){
+
+    public static boolean checkElementExistence() {
         return Common.checkElementExistence(Locators.petCity.Login.fieldOfMessageForLogin);
     }
-//    public static String getCurrentPage() {
-//        return Common.getCurrentUrl();
-//    }
 }

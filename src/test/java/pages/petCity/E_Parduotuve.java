@@ -23,7 +23,6 @@ public class E_Parduotuve {
     }
 
     public static String checkQuantityInCart() {
-
         return Common.getElementText(Locators.petCity.E_Parduotuve.spanQuantityOfProductsInCart);
     }
 }

@@ -15,22 +15,23 @@ public class E_Parduotuve extends BaseTest {
         pages.petCity.E_Parduotuve.open();
         pages.petCity.E_Parduotuve.closeCookiesPopUp();
     }
-    @DataProvider(name ="addProductToCart", parallel = true)
-    public Object[][]addProductToCartDataProvider(){
+
+    @DataProvider(name = "addProductToCart", parallel = true)
+    public Object[][] addProductToCartDataProvider() {
         return new Object[][]{
-                {"1","5"},
-                {"2","1"},
-                {"3","3"},
-                {"4","7"},
+                {"1", "5"},
+                {"2", "1"},
+                {"3", "3"},
         };
     }
-    @Test(dataProvider = "addProductToCart", threadPoolSize = 4)
-    public void testAddProductToCart(String position, String quantity){
+
+    @Test(dataProvider = "addProductToCart", threadPoolSize = 3)
+    public void testAddProductToCart(String position, String quantity) {
         String expectedQuantity = quantity;
         String actualQuantity;
         Driver.getDriver().manage().window().fullscreen();
 
-        pages.petCity.E_Parduotuve.chooseQuantityOfProduct(position,quantity);
+        pages.petCity.E_Parduotuve.chooseQuantityOfProduct(position, quantity);
         pages.petCity.E_Parduotuve.clickAddProductButtonByPosition(position);
         try {
             Thread.sleep(5000);
@@ -39,7 +40,6 @@ public class E_Parduotuve extends BaseTest {
         }
         actualQuantity = pages.petCity.E_Parduotuve.checkQuantityInCart();
 
-        Assert.assertEquals(actualQuantity,expectedQuantity);
-
+        Assert.assertEquals(actualQuantity, expectedQuantity);
     }
 }

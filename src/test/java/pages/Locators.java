@@ -20,6 +20,7 @@ public class Locators {
             public static By linkToKates = By.xpath("//*[@id=\"main-header\"]/div[3]/div/div/div/div/div/div/ul/li[2]");
             public static By linkToKaciuTualetai = By.xpath("//*[@id=\"submenu\"]/li[2]/ul/li[2]/a");
         }
+
         public static class Login {
 
             public static By inputAccountEmail = By.xpath("//input[@name='login[username]']");
@@ -33,11 +34,11 @@ public class Locators {
             public static By spanQuantityOfProductsInCart = By.xpath("(//span[@class='products'])[1]");
 
             public static By buttonAddOneProductByPosition(String position) {
-                return By.xpath(String.format("(//button[text()='Daugiau'])[%s]",position));
+                return By.xpath(String.format("(//button[text()='Daugiau'])[%s]", position));
             }
 
             public static By buttonProductsAddByPosition(String position) {
-                return By.xpath(String.format("(//button[@class='button button-primary'])[%s]",position));
+                return By.xpath(String.format("(//button[@class='button button-primary'])[%s]", position));
             }
         }
     }

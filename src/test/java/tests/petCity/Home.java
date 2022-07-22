@@ -13,10 +13,11 @@ public class Home extends BaseTest {
         pages.petCity.Home.open();
         pages.petCity.Home.closeCookiesPopUp();
     }
+
     @Test
-    public void testSearchBoxWithInvalidData(){
+    public void testSearchBoxWithInvalidData() {
         String testData = "tokioNera";
-        String expectedMessage ="Negalime rasti prekių atitinkančių jūsų pasirinkimą.";
+        String expectedMessage = "Negalime rasti prekių atitinkančių jūsų pasirinkimą.";
         String actualMessage;
 
         pages.petCity.Home.enterProductName(testData);
@@ -25,23 +26,25 @@ public class Home extends BaseTest {
 
         Assert.assertEquals(actualMessage, expectedMessage);
     }
+
     @Test
-    public void testSearchBoxWithValidData(){
+    public void testSearchBoxWithValidData() {
         String testData = "Encore Mackerel";
         boolean isElementExist;
         pages.petCity.Home.enterProductName(testData);
         pages.petCity.Home.clickSearchButton();
-         isElementExist = pages.petCity.Home.checkElementExistence();
+        isElementExist = pages.petCity.Home.checkElementExistence();
 
-         Assert.assertTrue(isElementExist);
+        Assert.assertTrue(isElementExist);
     }
+
     @Test
-    public void testSelectProductCategoryFromDropdownMenu(){
+    public void testSelectProductCategoryFromDropdownMenu() {
         String expectedurl = "https://www.petcity.lt/e-parduotuve/kates/kraikas-ir-tualetai/tualetai";
         String actualUrl;
         pages.petCity.Home.chooseCategoryInShop();
         actualUrl = pages.petCity.Home.checkCurrentUrl();
 
-        Assert.assertEquals(actualUrl,expectedurl);
+        Assert.assertEquals(actualUrl, expectedurl);
     }
 }
