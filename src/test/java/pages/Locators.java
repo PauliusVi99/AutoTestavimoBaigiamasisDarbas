@@ -14,6 +14,7 @@ public class Locators {
             public static By buttonForProductsSearch =
                     By.xpath("//button[@class='icon search__submit']");
             public static By fieldInvalidProductSearchMessage = (By.xpath("//div[@class='message info empty empty-notice']"));
+            public static By divProductLayoutBox = (By.xpath("//div[@class='layout-products__container']"));
         }
         public static class Login {
 

@@ -19,11 +19,20 @@ public class Home extends BaseTest {
         String expectedMessage ="Negalime rasti prekių atitinkančių jūsų pasirinkimą.";
         String actualMessage;
 
-        pages.petCity.Home.enterInvalidProduct(testData);
+        pages.petCity.Home.enterProductName(testData);
         pages.petCity.Home.clickSearchButton();
         actualMessage = pages.petCity.Home.readMessage();
 
         Assert.assertEquals(actualMessage, expectedMessage);
+    }
+    @Test
+    public void testSearchBoxWithValidData(){
+        String testData = "Encore Mackerel";
+        boolean isElementExist;
+        pages.petCity.Home.enterProductName(testData);
+        pages.petCity.Home.clickSearchButton();
+         isElementExist = pages.petCity.Home.checkElementExistence();
 
+         Assert.assertTrue(isElementExist);
     }
 }

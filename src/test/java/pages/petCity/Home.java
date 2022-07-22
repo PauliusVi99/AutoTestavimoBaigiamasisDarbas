@@ -13,7 +13,7 @@ public class Home {
         Common.clickElementByAction(Locators.petCity.Home.buttonCloseCookiesPopUp);
     }
 
-    public static void enterInvalidProduct(String testData) {
+    public static void enterProductName(String testData) {
         Common.sendKeysToElement(Locators.petCity.Home.inputProductsSearchBar, testData);
     }
 
@@ -23,5 +23,9 @@ public class Home {
 
     public static String readMessage() {
         return Common.getElementText(Locators.petCity.Home.fieldInvalidProductSearchMessage);
+    }
+
+    public static boolean checkElementExistence(){
+        return Common.checkElementExistence(Locators.petCity.Home.divProductLayoutBox);
     }
 }
