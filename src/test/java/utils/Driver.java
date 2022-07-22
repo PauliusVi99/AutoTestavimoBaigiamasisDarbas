@@ -6,19 +6,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Driver {
-    public static WebDriver driver;
-
+    public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     public static WebDriver getDriver() {
-        return driver;
+        return driver.get();
     }
 
     public static void setDriver() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver.set(new ChromeDriver());
     }
 
     public static void closeDriver() {
-        driver.quit();
+        driver.get().quit();
+        driver.remove();
     }
 
 }
