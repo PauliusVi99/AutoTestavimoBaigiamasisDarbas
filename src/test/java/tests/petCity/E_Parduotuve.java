@@ -2,6 +2,7 @@ package tests.petCity;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tests.BaseTest;
 import utils.Driver;
@@ -14,14 +15,23 @@ public class E_Parduotuve extends BaseTest {
         pages.petCity.E_Parduotuve.open();
         pages.petCity.E_Parduotuve.closeCookiesPopUp();
     }
-    @Test
-    public void testAddProductToCart(){
-        String expectedQuantity = "5";
+    @DataProvider(name ="addProductToCart", parallel = true)
+    public Object[][]addProductToCartDataProvider(){
+        return new Object[][]{
+                {"1","5"},
+                {"2","1"},
+                {"3","3"},
+                {"4","7"},
+        };
+    }
+    @Test(dataProvider = "addProductToCart", threadPoolSize = 4)
+    public void testAddProductToCart(String position, String quantity){
+        String expectedQuantity = quantity;
         String actualQuantity;
         Driver.getDriver().manage().window().fullscreen();
 
-        pages.petCity.E_Parduotuve.chooseQuantityOfProduct("1","5");
-        pages.petCity.E_Parduotuve.clickAddProductButtonByPosition("1");
+        pages.petCity.E_Parduotuve.chooseQuantityOfProduct(position,quantity);
+        pages.petCity.E_Parduotuve.clickAddProductButtonByPosition(position);
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

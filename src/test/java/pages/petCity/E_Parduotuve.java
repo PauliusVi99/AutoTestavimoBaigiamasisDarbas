@@ -15,8 +15,6 @@ public class E_Parduotuve {
 
     public static void chooseQuantityOfProduct(String position, String quantity) {
         Common.clickElementByActionCertainNumberOfTimes(Locators.petCity.E_Parduotuve.buttonAddOneProductByPosition(position), quantity);
-
-
     }
 
     public static void clickAddProductButtonByPosition(String position) {
