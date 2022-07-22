@@ -56,4 +56,7 @@ public class Common {
         }
     }
 
+    public static String getCurrentUrl() {
+        return Driver.getDriver().getCurrentUrl();
+    }
 }

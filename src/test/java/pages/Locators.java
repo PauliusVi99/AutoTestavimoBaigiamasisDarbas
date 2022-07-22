@@ -15,6 +15,10 @@ public class Locators {
                     By.xpath("//button[@class='icon search__submit']");
             public static By fieldInvalidProductSearchMessage = (By.xpath("//div[@class='message info empty empty-notice']"));
             public static By divProductLayoutBox = (By.xpath("//div[@class='layout-products__container']"));
+            public static By linkToE_Parduotuve =
+                    By.xpath("//*[@id=\"main-header\"]/div[2]/div[2]/div/div[1]/div/nav/ul/li[1]");
+            public static By linkToKates = By.xpath("//*[@id=\"main-header\"]/div[3]/div/div/div/div/div/div/ul/li[2]");
+            public static By linkToKaciuTualetai = By.xpath("//*[@id=\"submenu\"]/li[2]/ul/li[2]/a");
         }
         public static class Login {
 

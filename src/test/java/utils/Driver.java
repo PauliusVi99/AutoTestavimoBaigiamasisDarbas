@@ -14,6 +14,7 @@ public class Driver {
     public static void setDriver() {
         WebDriverManager.chromedriver().setup();
         driver.set(new ChromeDriver());
+        driver.get().manage().timeouts().implicitlyWait(Constants.DURATION_TIMEOUT);
     }
 
     public static void closeDriver() {

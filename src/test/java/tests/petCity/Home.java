@@ -35,4 +35,13 @@ public class Home extends BaseTest {
 
          Assert.assertTrue(isElementExist);
     }
+    @Test
+    public void testSelectProductCategoryFromDropdownMenu(){
+        String expectedurl = "https://www.petcity.lt/e-parduotuve/kates/kraikas-ir-tualetai/tualetai";
+        String actualUrl;
+        pages.petCity.Home.chooseCategoryInShop();
+        actualUrl = pages.petCity.Home.checkCurrentUrl();
+
+        Assert.assertEquals(actualUrl,expectedurl);
+    }
 }

@@ -2,6 +2,8 @@ package pages.petCity;
 
 import pages.Common;
 import pages.Locators;
+import utils.Constants;
+import utils.Driver;
 
 public class Home {
     public static void open() {
@@ -27,5 +29,15 @@ public class Home {
 
     public static boolean checkElementExistence(){
         return Common.checkElementExistence(Locators.petCity.Home.divProductLayoutBox);
+    }
+
+    public static void chooseCategoryInShop() {
+        Common.clickElementByAction(Locators.petCity.Home.linkToE_Parduotuve);
+        Common.clickElementByAction(Locators.petCity.Home.linkToKates);
+        Common.clickElementByAction(Locators.petCity.Home.linkToKaciuTualetai);
+    }
+
+    public static String checkCurrentUrl() {
+        return Common.getCurrentUrl();
     }
 }
