@@ -20,7 +20,6 @@ public class Login extends BaseTest {
         String accountPassword = "gJz7CLJXmCXftyL";
         boolean isUserGuest;
 
-
         pages.petCity.Login.enterValidEmail(accountEmail);
         pages.petCity.Login.enterValidPassword(accountPassword);
         pages.petCity.Login.clickLoginButton();
